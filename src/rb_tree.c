@@ -142,38 +142,6 @@ struct rbtree *rbtree_right_rotate(struct rbtree *root, struct rbtree *node)
 	return root;
 }
 
-// struct rbtree *lookup(struct rbtree *node, int key)
-// {
-//     if (node->key != key) {
-//         if (key > node->key) {
-//             lookup(node->right, key);
-//         }else{
-//             lookup(node->left, key);
-//         }
-//     }
-//     if(node->key == key) {
-//         return node;
-//     }
-//     if(node == NullNode && node->key != key) {
-//     	return NULL;
-//     }
-//     return node;
-// }
-
-// struct rbtree *lookup(struct rbtree *node, int key)
-// {
-//     if(node->key == key) {
-//     	return node;
-//     }
-//     if(node->key != key) {
-//     	if (key > node->key) {
-//              lookup(node->right, key);
-//          }else{
-//              lookup(node->left, key);
-//          }
-//     }
-//     //return NULL;
-// }
 struct rbtree *lookup(struct rbtree *node, int key)
 {
     while(1){
@@ -204,10 +172,10 @@ void rbtree_free(struct rbtree *root)
     	root->color = 2;//None
         rbtree_free(root->left);
         rbtree_free(root->right);
+        free(root);
+        //root = NULL;
         //root->left = NULL;
         //root->right = NULL;
-        //root = NULL;
-        free(root);
         //root = NULL;
     }
     //free(NullNode);

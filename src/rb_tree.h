@@ -3,7 +3,7 @@
 
 enum Color {COLOR_RED, COLOR_BLACK, NONE};
 
-#include<stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 struct rbtree {
